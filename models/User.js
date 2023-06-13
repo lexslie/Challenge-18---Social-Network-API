@@ -1,5 +1,5 @@
-const { Schema, model } = require('mongoose');
-const moment = require('moment');
+const { Schema, model } = require("mongoose");
+const moment = require("moment");
 
 const UserSchema = new Schema({
     username: {
@@ -17,13 +17,13 @@ const UserSchema = new Schema({
     thoughts: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Thought'
+            ref: "Thought"
         }
     ],
     friends: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'User'
+            ref: "User"
         }
     ]
 },
@@ -33,11 +33,11 @@ const UserSchema = new Schema({
     }
 );
 
-UserSchema.virtual('friendCount').get(function () {
+UserSchema.virtual("friendCount").get(function () {
     return this.friends.length;
 });
 
 
-const User = model('User', UserSchema);
+const User = model("User", UserSchema);
 
 module.exports = User;
